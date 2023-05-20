@@ -44,7 +44,7 @@ function Main(props) {
       </section>
       <section className="elements" aria-label="Блок с изображениями">
         {cards.map((card) => (
-          <Card name={card.name} link={card.link} likeLength={card.likes.length} key={card._id} onCardClick={props.onCardClick} onCardDelete={props.onCardDelete} card={card} >
+          <Card key={card._id} onCardClick={props.onCardClick} onCardDelete={props.onCardDelete} card={card} >
           </Card>
         ))}
       </section>
