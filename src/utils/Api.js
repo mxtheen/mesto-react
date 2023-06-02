@@ -4,7 +4,7 @@ export default class Api {
     this.headers = config.headers
   }
 
-  _getJsonResponse(res){
+  _getJsonResponse(res) {
     if (res.ok) {
       return res.json()
     } else {
@@ -14,7 +14,7 @@ export default class Api {
   getInitialCards() {
     return fetch(`${this.url}cards`, {
       headers: this.headers,
-      method:"GET"
+      method: "GET"
     }).then(res => {
       return this._getJsonResponse(res)
     })
@@ -27,30 +27,31 @@ export default class Api {
     }).then(res => {
       return this._getJsonResponse(res)
     })
+
   }
 
-  getUserInfo(){
-   return fetch(`${this.url}users/me`,{
-    headers:this.headers,
-    method:"GET"
-  }).then(res => {
-    return this._getJsonResponse(res)
-  })
-}
-  sendUserInfo(userData){
-    return fetch(`${this.url}users/me`,{
+  getUserInfo() {
+    return fetch(`${this.url}users/me`, {
+      headers: this.headers,
+      method: "GET"
+    }).then(res => {
+      return this._getJsonResponse(res)
+    })
+  }
+  setUserInfo(userData) {
+    return fetch(`${this.url}users/me`, {
       headers: this.headers,
       method: "PATCH",
-      body:JSON.stringify(userData)
+      body: JSON.stringify(userData)
     }).then(res => {
       return this._getJsonResponse(res)
     })
   }
   changeUserAvatarImage(avatar) {
-    return fetch(`${this.url}users/me/avatar`,{
+    return fetch(`${this.url}users/me/avatar`, {
       headers: this.headers,
       method: "PATCH",
-      body:JSON.stringify(avatar)
+      body: JSON.stringify(avatar)
     }).then(res => {
       return this._getJsonResponse(res)
     })
@@ -64,17 +65,17 @@ export default class Api {
     })
   }
   putLikeCard(cardId) {
-    return fetch(`${this.url}cards/${cardId}/likes`,{
+    return fetch(`${this.url}cards/${cardId}/likes`, {
       headers: this.headers,
       method: "PUT"
     }).then(res => {
       return this._getJsonResponse(res)
     })
   }
-  deleteLikeCard(cardId){
-    return fetch(`${this.url}cards/${cardId}/likes`,{
-      headers:this.headers,
-      method:"DELETE"
+  deleteLikeCard(cardId) {
+    return fetch(`${this.url}cards/${cardId}/likes`, {
+      headers: this.headers,
+      method: "DELETE"
     }).then(res => {
       return this._getJsonResponse(res)
     })
