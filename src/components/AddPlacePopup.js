@@ -5,6 +5,11 @@ function AddPlacePopup(props) {
   const [title, setTitle] = React.useState("")
   const [link, setLink] = React.useState("")
 
+  React.useEffect(() => {
+    setTitle('');
+    setLink('')
+  }, [props.isOpen])
+
   function handleChangeTitle(e) {
     setTitle(e.target.value)
   }

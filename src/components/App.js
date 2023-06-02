@@ -82,7 +82,6 @@ function App() {
     apiInit.createNewCard(card)
       .then((newCard) => {
         setCards([newCard, ...cards])
-        console.log(newCard)
         closeAllPopups()
       }).catch((err) => {
         console.log("При добавлении нового места возникла ошибка:", err)
